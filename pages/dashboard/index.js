@@ -2,7 +2,8 @@ import { Fragment } from "react";
 import { Menu, Popover, Transition } from "@headlessui/react";
 import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
 import { SearchIcon } from "@heroicons/react/solid";
-import { useSession } from "next-auth/client";
+import { getSession } from "next-auth/client";
+import { useRouter } from "next/router";
 import Link from "next/link";
 
 const user = {
@@ -88,11 +89,8 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-function MoodMovie(props) {
-  const [session, loading] = useSession();
-  const user = session.user;
-  console.log(user);
-
+function MoodMovie({ session }) {
+  console.dir(session);
   return (
     <div className="min-h-screen bg-gradient-to-r from-gray-900 to-black">
       <Popover
@@ -505,6 +503,22 @@ function MoodMovie(props) {
       </footer>
     </div>
   );
+}
+
+export async function getServerSideProps(context) {
+  const session = await getSession(context);
+
+  if (!session)
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
+
+  return {
+    props: { session },
+  };
 }
 
 export default MoodMovie;
