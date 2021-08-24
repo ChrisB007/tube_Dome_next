@@ -2,6 +2,7 @@ import { Fragment } from "react";
 import { Menu, Popover, Transition } from "@headlessui/react";
 import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
 import { SearchIcon } from "@heroicons/react/solid";
+import { useSession } from "next-auth/client";
 import Link from "next/link";
 
 const user = {
@@ -88,6 +89,10 @@ function classNames(...classes) {
 }
 
 function MoodMovie(props) {
+  const [session, loading] = useSession();
+  const user = session.user;
+  console.log(user);
+
   return (
     <div className="min-h-screen bg-gradient-to-r from-gray-900 to-black">
       <Popover
@@ -119,8 +124,8 @@ function MoodMovie(props) {
                             <span className="sr-only">Open user menu</span>
                             <img
                               className="h-8 w-8 rounded-full"
-                              src={user.imageUrl}
-                              alt=""
+                              src={user.image}
+                              alt="profile-image"
                             />
                           </Menu.Button>
                         </div>
@@ -277,8 +282,8 @@ function MoodMovie(props) {
                           <div className="flex-shrink-0">
                             <img
                               className="h-10 w-10 rounded-full"
-                              src={user.imageUrl}
-                              alt=""
+                              src={user.image}
+                              alt="profile-image"
                             />
                           </div>
                           <div className="ml-3 min-w-0 flex-1">
@@ -333,13 +338,13 @@ function MoodMovie(props) {
                         <div className="flex-shrink-0">
                           <img
                             className="mx-auto h-20 w-20 rounded-full"
-                            src={user.imageUrl}
+                            src={user.image}
                             alt=""
                           />
                         </div>
                         <div className="mt-4 text-center sm:mt-0 sm:pt-1 sm:text-left">
                           <p className="text-sm font-medium text-gray-600">
-                            Welcome back,
+                            Welcome,
                           </p>
                           <p className="text-xl font-bold text-gray-900 sm:text-2xl">
                             {user.name}

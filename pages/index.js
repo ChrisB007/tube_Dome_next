@@ -3,14 +3,28 @@ import Body from "../components/BodyOne";
 import BodyTwo from "../components/BodyTwo";
 import Gamify from "../components/Gamify";
 import Hero from "../components/Hero";
+import { useSession } from "next-auth/client";
+import Dashboard from "./dashboard/index";
 
 export default function Home() {
+  const [session, loading] = useSession();
   return (
-    <div>
-      <Hero />
-      <Body />
-      <Gamify />
-      <BodyTwo />
-    </div>
+    <>
+      {!session && (
+        <>
+          <div>
+            <Hero />
+            <Body />
+            <Gamify />
+            <BodyTwo />
+          </div>
+        </>
+      )}
+      {session && (
+        <>
+          <Dashboard />
+        </>
+      )}
+    </>
   );
 }

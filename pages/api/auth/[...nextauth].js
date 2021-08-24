@@ -19,5 +19,5 @@ export default NextAuth({
     }),
   ],
   // SQL or MongoDB database (or leave empty)
-  database: process.env.DATABASE_URL,
+  // database: process.env.DATABASE_URL,
 });
