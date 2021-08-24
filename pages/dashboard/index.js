@@ -2,7 +2,7 @@ import { Fragment } from "react";
 import { Menu, Popover, Transition } from "@headlessui/react";
 import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
 import { SearchIcon } from "@heroicons/react/solid";
-import { getSession } from "next-auth/client";
+import { useSession, getSession } from "next-auth/client";
 import { useRouter } from "next/router";
 import Link from "next/link";
 
@@ -18,7 +18,6 @@ const navigation = [
   { name: "All Videos", href: "/allvideos", current: false },
   { name: "Tools", href: "/tools", current: false },
   { name: "Fans", href: "/fans", current: false },
-  { name: "Contact Us", href: "/contact", current: false },
 ];
 const userNavigation = [
   { name: "Your Profile", href: "/profile" },
@@ -90,7 +89,9 @@ function classNames(...classes) {
 }
 
 function MoodMovie({ session }) {
-  console.dir(session);
+  const [loginSession, loading] = useSession();
+  const user = loginSession.user;
+  console.log(user);
   return (
     <div className="min-h-screen bg-gradient-to-r from-gray-900 to-black">
       <Popover
