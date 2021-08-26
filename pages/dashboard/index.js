@@ -3,7 +3,6 @@ import { Menu, Popover, Transition } from "@headlessui/react";
 import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
 import { SearchIcon } from "@heroicons/react/solid";
 import { useSession, getSession } from "next-auth/client";
-import { useRouter } from "next/router";
 import Link from "next/link";
 
 const user = {
@@ -13,6 +12,7 @@ const user = {
   imageUrl:
     "https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
 };
+
 const navigation = [
   { name: "Home", href: "/dashboard", current: true },
   { name: "All Videos", href: "/allvideos", current: false },
@@ -91,7 +91,6 @@ function classNames(...classes) {
 function MoodMovie({ session }) {
   const [loginSession, loading] = useSession();
   const user = loginSession.user;
-  console.log(user);
   return (
     <div className="min-h-screen bg-gradient-to-r from-gray-900 to-black">
       <Popover
@@ -338,7 +337,7 @@ function MoodMovie({ session }) {
                           <img
                             className="mx-auto h-20 w-20 rounded-full"
                             src={user.image}
-                            alt=""
+                            alt="your profile image"
                           />
                         </div>
                         <div className="mt-4 text-center sm:mt-0 sm:pt-1 sm:text-left">

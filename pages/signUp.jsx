@@ -3,7 +3,7 @@ import {
   TwitterLoginButton,
 } from "react-social-login-buttons";
 
-function Signin() {
+function Signup() {
   return (
     <div className="min-h-screen bg-gradient-to-r from-gray-900 to-black flex">
       <div className="flex-1 flex flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
@@ -71,6 +71,7 @@ function Signin() {
                       id="email"
                       name="email"
                       type="email"
+                      placeholder="Your email"
                       autoComplete="email"
                       required
                       className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
@@ -89,8 +90,19 @@ function Signin() {
                     <input
                       id="password"
                       name="password"
+                      placeholder="Your Password"
                       type="password"
                       autoComplete="current-password"
+                      required
+                      className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    />
+                  </div>
+                  <div className="mt-1">
+                    <input
+                      id="second-password"
+                      name="password"
+                      placeholder="Re-type your password"
+                      type="password"
                       required
                       className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                     />
@@ -147,4 +159,4 @@ function Signin() {
   );
 }
 
-export default Signin;
+export default Signup;

@@ -43,14 +43,7 @@ function Nav(props) {
       case null:
         return;
       case false:
-        return (
-          <Link
-            href="/signin"
-            className="whitespace-nowrap hover:text-white inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700"
-          >
-            Gain Free Access
-          </Link>
-        );
+        return;
       default:
         return <Login />;
     }
