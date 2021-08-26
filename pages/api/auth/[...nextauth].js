@@ -4,15 +4,14 @@ import Providers from "next-auth/providers";
 const options = {
   providers: [
     // OAuth authentication providers
-    Providers.Twitter({
-      clientId: process.env.TWITTER,
-      clientSecret: process.env.TWITTER_SECRET,
-      icon: "/images/twitter.png",
-    }),
+    // Providers.Twitter({
+    //   clientId: process.env.TWITTER,
+    //   clientSecret: process.env.TWITTER_SECRET,
+    //   icon: "/images/twitter.png",
+    // }),
     Providers.Google({
       clientId: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      icon: "/images/google.png",
     }),
     // Sign in with passwordless email link
     Providers.Email({
