@@ -10,6 +10,11 @@ export default function Home() {
   const [session, loading] = useSession();
   return (
     <>
+    <Head>
+        <title>flicBase</title>
+        <link rel="icon" href="/favicon.ico" />
+        <meta name="description" content="flicBase desciption here" />
+      </Head>
       {!session && (
         <>
           <div>
