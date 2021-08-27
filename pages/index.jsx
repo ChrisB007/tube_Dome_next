@@ -15,6 +15,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
         <meta name="description" content="flicBase desciption here" />
       </Head>
+      <div>
       {!session && (
         <>
           <div>
@@ -30,6 +31,7 @@ export default function Home() {
           <Dashboard />
         </>
       )}
+      </div>
     </>
   );
 }

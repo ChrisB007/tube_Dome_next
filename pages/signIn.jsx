@@ -3,7 +3,6 @@ import {
   TwitterLoginButton,
 } from "react-social-login-buttons";
 import { providers, signIn, getSession, csrfToken } from "next-auth/client";
-import Image from 'next/image';
 
 function Signin({ providers, csrfToken }) {
   return (
@@ -39,8 +38,7 @@ function Signin({ providers, csrfToken }) {
                     Email address
                   </label>
                   <div className="mt-1">
-                    <input
-                    
+                    <input                 
                       name="csrfToken"
                       type="hidden"
                       defaultValue= {csrfToken}
@@ -49,8 +47,7 @@ function Signin({ providers, csrfToken }) {
                     <input
                       id="email"
                       name="email"
-                      type="text"
-                      
+                      type="text"      
                       placeholder="Your email"
                       autoComplete="email"
                       required
@@ -126,10 +123,6 @@ function Signin({ providers, csrfToken }) {
 }
 
 export default Signin;
-
-// export async function getServerSideProps(context) {
-//   return { props: { providers: await providers(context) } };
-// }
 
 
 Signin.getInitialProps = async(context) =>{

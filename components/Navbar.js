@@ -153,13 +153,13 @@ function Nav(props) {
                   </Popover>
 
                   <a
-                    href="www.we.com"
+                    href="/"
                     className="text-base font-medium text-gray-500 hover:text-white"
                   >
                     How it works
                   </a>
                   <a
-                    href="www.we.com"
+                    href="/"
                     className="text-base font-medium text-gray-500 hover:text-white"
                   >
                     Contact Us
