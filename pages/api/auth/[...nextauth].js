@@ -3,12 +3,6 @@ import Providers from "next-auth/providers";
 
 const options = {
   providers: [
-    // OAuth authentication providers
-    // Providers.Twitter({
-    //   clientId: process.env.TWITTER,
-    //   clientSecret: process.env.TWITTER_SECRET,
-    //   icon: "/images/twitter.png",
-    // }),
     Providers.Google({
       clientId: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
@@ -33,7 +27,7 @@ const options = {
   },
 
   // SQL or MongoDB database (or leave empty)
-  database: process.env.DATABASE_URL,
+  database: process.env.MONGODB_URI,
 };
 
 export default (req, res) => NextAuth(req, res, options);
