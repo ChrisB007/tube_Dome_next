@@ -56,15 +56,26 @@ function Nav(props) {
           <>
             <div className="max-w-7xl mx-auto px-4 sm:px-6">
               <div className="flex justify-between items-center py-6 md:justify-start md:space-x-10">
-                <div className="flex justify-start lg:w-0 lg:flex-1">
-                  <a href={props.auth ? "/dashboard" : "/"}>
-                    <span className="sr-only">TuberDome</span>
-                    <img
-                      className="h-8 w-auto sm:h-10"
-                      src="/images/logo.png"
-                      alt="tuberdome-logo"
-                    />
-                  </a>
+                <div className="flex ">
+                  <Link href="/">
+                    <>
+                      <span className="sr-only">TuberDome</span>
+                      <svg
+                        className="logosvg h-20 w-20 text-red-500"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        {" "}
+                        <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z" />{" "}
+                        <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" />
+                      </svg>
+                      <p className="logo">Dome</p>
+                    </>
+                  </Link>
                 </div>
                 <div className="-mr-2 -my-2 md:hidden">
                   <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-white hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-green-500">

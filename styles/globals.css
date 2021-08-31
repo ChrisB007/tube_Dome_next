@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Squada+One&display=swap');
 
 .login-button{
     width: 200px;
@@ -18,4 +19,30 @@
 .provider-button{
     width: 350px;
     background-color: #fff;
+}
+.logosvg {
+    width: 4rem;
+    margin: auto;
+}
+
+.logo {
+    color: #a70000;
+    font-size: 1.7em;
+    position: relative;
+    bottom: 2px;
+    left: 6px;
+    font-family: 'Squada One', cursive;
+    margin: auto;
+}
+
+.herotext {
+    color: #ffffff;
+    font-size: 4rem;
+    text-align: center;
+    font-weight: 800;
+    text-shadow: 2px 2px 4px #000000;
+}
+.logosvg {
+    width: 4rem;
+    margin: auto;
 }
