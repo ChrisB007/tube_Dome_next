@@ -1,6 +1,9 @@
 import Head from "next/head";
 import clientPromise from "../lib/mongodb";
 import { useSession } from "next-auth/client";
+import Jumbotron from "../components/Hero";
+import CreatorsList from "../components/CcreatorsProfile";
+import TuberOne from "../components/TubeOne";
 
 export default function Home({ isConnected }) {
   const [session, loading] = useSession();
@@ -14,9 +17,9 @@ export default function Home({ isConnected }) {
         <meta name="description" content="TuberDome description here" />
       </Head>
       <main>
-        {isConnected
-          ? console.log("The database IS connected")
-          : console.log("The database is NOT connected")}
+        <Jumbotron />
+        <CreatorsList />
+        <TuberOne />
       </main>
     </>
   );

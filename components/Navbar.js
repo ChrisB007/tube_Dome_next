@@ -58,11 +58,11 @@ function Nav(props) {
               <div className="flex justify-between items-center py-6 md:justify-start md:space-x-10">
                 <div className="flex justify-start lg:w-0 lg:flex-1">
                   <a href={props.auth ? "/dashboard" : "/"}>
-                    <span className="sr-only">flicbase</span>
+                    <span className="sr-only">TuberDome</span>
                     <img
                       className="h-8 w-auto sm:h-10"
                       src="/images/logo.png"
-                      alt="flicbase logo"
+                      alt="tuberdome-logo"
                     />
                   </a>
                 </div>
