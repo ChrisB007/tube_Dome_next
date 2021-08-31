@@ -51,7 +51,7 @@ function Nav(props) {
 
   return (
     <div>
-      <Popover className="relative bg-black shadow">
+      <Popover className="relative bg-gradient-to-r from-gray-200 via-gray-300 to-gray-500 shadow">
         {({ open }) => (
           <>
             <div className="max-w-7xl mx-auto px-4 sm:px-6">
