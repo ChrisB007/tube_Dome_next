@@ -12,25 +12,32 @@ import {
 import { ChevronDownIcon } from "@heroicons/react/solid";
 import Link from "next/link";
 import Login from "./Login";
+import { useRouter } from "next/router";
 
 const features = [
   {
-    name: "Film Studios",
-    href: "#",
-    description:
-      "Get a better understanding of where your traffic is coming from.",
+    name: "Why sponsor here?",
+    href: "/whysponsor",
+    description: "See why sponsoring a YouTuber on tuberDome is a smart choice",
     icon: ChartBarIcon,
   },
   {
-    name: "Production Studios",
+    name: "Create an Account",
+    href: "/signIn",
+    description: "Set up a free account and launch a campaign today.",
+    icon: ChartBarIcon,
+  },
+  {
+    name: "Features & Tools",
     href: "#",
-    description: "Speak directly to your customers in a more meaningful way.",
+    description:
+      "Make use of available features and reporting tools to help manage your campaigns",
     icon: CursorClickIcon,
   },
 ];
 const callsToAction = [
-  { name: "Pricing", href: "#", icon: PlayIcon },
-  { name: "Contact Sales", href: "#", icon: PhoneIcon },
+  { name: "Become a Sponsor", href: "/signIn", icon: PlayIcon },
+  { name: "Contact Sales", href: "/contact", icon: PhoneIcon },
 ];
 
 function classNames(...classes) {
@@ -38,6 +45,7 @@ function classNames(...classes) {
 }
 
 function Nav(props) {
+  const router = useRouter();
   const userLoggedIn = () => {
     switch (props.auth) {
       case null:
@@ -55,28 +63,32 @@ function Nav(props) {
         {({ open }) => (
           <>
             <div className="max-w-7xl mx-auto px-4 sm:px-6">
-              <div className="flex justify-between items-center py-6 md:justify-start md:space-x-10">
-                <div className="flex ">
-                  <Link href="/">
+              <div className="flex justify-between items-center py-2 md:justify-start md:space-x-10">
+                <Link href="/">
+                  <div className="flex cursor-pointer ">
                     <>
                       <span className="sr-only">TuberDome</span>
-                      <svg
-                        className="logosvg h-20 w-20 text-red-500"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      >
-                        {" "}
-                        <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z" />{" "}
-                        <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" />
-                      </svg>
-                      <p className="logo">Dome</p>
+
+                      <a>
+                        <svg
+                          className="logosvg h-20 w-20 text-red-500"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          {" "}
+                          <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z" />{" "}
+                          <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" />
+                        </svg>
+
+                        <p className="logo mb-4">Dome</p>
+                      </a>
                     </>
-                  </Link>
-                </div>
+                  </div>
+                </Link>
                 <div className="-mr-2 -my-2 md:hidden">
                   <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-white hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-green-500">
                     <span className="sr-only">Open menu</span>
@@ -93,7 +105,7 @@ function Nav(props) {
                             "group rounded-md inline-flex items-center text-base font-medium hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
                           )}
                         >
-                          <span>Film & TV</span>
+                          <span>For Sponsors</span>
                           <ChevronDownIcon
                             className={classNames(
                               open ? "text-gray-600" : "text-gray-400",
@@ -164,13 +176,14 @@ function Nav(props) {
                   </Popover>
 
                   <a
-                    href="/"
+                    href="/creators"
                     className="text-base font-medium text-gray-500 hover:text-white"
                   >
-                    How it works
+                    For Creators
                   </a>
+
                   <a
-                    href="/"
+                    href="/contact"
                     className="text-base font-medium text-gray-500 hover:text-white"
                   >
                     Contact Us

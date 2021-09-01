@@ -29,7 +29,7 @@
     color: #a70000;
     font-size: 1.7em;
     position: relative;
-    bottom: 2px;
+    bottom: 20px;
     left: 6px;
     font-family: 'Squada One', cursive;
     margin: auto;
@@ -44,5 +44,11 @@
 }
 .logosvg {
     width: 4rem;
+    margin: auto;
+}
+.aligntext {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin: auto;
 }
