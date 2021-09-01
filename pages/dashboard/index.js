@@ -46,7 +46,7 @@ const profile = {
   `,
   fields: {
     Phone: "(555) 123-4567",
-    Email: "ricardocooper@example.com",
+    Email: "coop@example.com",
     Title: "Executive",
     Team: "Marketing",
     Location: "San Francisco",
@@ -55,7 +55,14 @@ const profile = {
   },
 };
 const directory = {
-  A: [],
+  A: [
+    {
+      id: 1,
+      name: "Anthony Cooper",
+      role: "Brand Marketing Exec",
+      image: "/images/executive.jpg",
+    },
+  ],
   B: [],
   C: [],
   D: [],
@@ -71,14 +78,7 @@ const directory = {
   N: [],
   O: [],
   P: [],
-  R: [
-    {
-      id: 1,
-      name: "Ricardo Cooper",
-      role: "Brand Marketing Exec",
-      image: "/images/executive.jpg",
-    },
-  ],
+  R: [],
   S: [],
   T: [],
   U: [],
