@@ -58,5 +58,6 @@
 }
 .create-image{
     width: 90% !important;
+    padding-top: 7px;
     object-fit: cover;
 }
