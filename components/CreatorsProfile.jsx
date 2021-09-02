@@ -30,9 +30,9 @@ export default function CreatorsList() {
           >
             {people.map((person) => (
               <li key={person.name}>
-                <div className="space-y-6">
+                <div className="creator-box space-y-6">
                   <img
-                    className="mx-auto h-40 w-40 rounded-md xl:w-56 xl:h-56"
+                    className="create-image mx-auto h-40 w-40 rounded-md xl:w-56 xl:h-56"
                     src={person.imageUrl}
                     alt=""
                   />
