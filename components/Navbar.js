@@ -1,5 +1,6 @@
 import React from "react";
 import { Fragment } from "react";
+import { useSession, getSession } from "next-auth/client";
 import { Popover, Transition } from "@headlessui/react";
 import {
   ChartBarIcon,
@@ -44,10 +45,12 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-function Nav(props) {
-  const router = useRouter();
+function Nav(session) {
+  // const router = useRouter();
+  const [loginSession, loading] = useSession();
+  const user = loginSession?.user;
   const userLoggedIn = () => {
-    switch (props.auth) {
+    switch (session) {
       case null:
         return;
       case false:
@@ -64,7 +67,7 @@ function Nav(props) {
           <>
             <div className="max-w-7xl mx-auto px-4 sm:px-6">
               <div className="flex justify-between items-center py-2 md:justify-start md:space-x-10">
-                <Link href="/">
+                <Link href={user ? "/dashboard" : "/"}>
                   <div className="flex cursor-pointer ">
                     <>
                       <span className="sr-only">TuberDome</span>
@@ -75,9 +78,9 @@ function Nav(props) {
                           viewBox="0 0 24 24"
                           fill="none"
                           stroke="currentColor"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
                         >
                           {" "}
                           <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z" />{" "}
@@ -283,6 +286,22 @@ function Nav(props) {
       </Popover>
     </div>
   );
+}
+
+export async function getServerSideProps(context) {
+  const session = await getSession(context);
+
+  if (!session)
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
+
+  return {
+    props: { session },
+  };
 }
 
 export default Nav;

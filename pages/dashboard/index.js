@@ -17,14 +17,20 @@ import {
   PhoneIcon,
   SearchIcon,
 } from "@heroicons/react/solid";
-import Popup from "../../components/Popup";
+import Dashnav from "../../components/Dashnav";
+import PopUp from "../../components/Popup";
 
 const navigation = [
   { name: "Dashboard", href: "/dashboard", icon: HomeIcon, current: false },
-  { name: "Calendar", href: "#", icon: CalendarIcon, current: false },
+  {
+    name: "Calendar",
+    href: "",
+    icon: CalendarIcon,
+    current: false,
+  },
   { name: "My Sponsors", href: "#", icon: SearchCircleIcon, current: false },
   {
-    name: "Channel Growth",
+    name: "Grow your Channel",
     href: "#",
     icon: UserGroupIcon,
     current: false,
@@ -37,7 +43,7 @@ const tabs = [
   { name: "Contract", href: "#", current: false },
 ];
 const profile = {
-  name: "Ricardo Cooper",
+  name: "Anthony Cooper",
   image: "/images/executive.jpg",
   coverimage:
     "https://images.unsplash.com/photo-1444628838545-ac4016a5418a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
@@ -113,6 +119,7 @@ function MoodMovie({ session }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [loginSession, loading] = useSession();
   const user = loginSession.user;
+
   return (
     <div className="relative h-screen flex overflow-hidden bg-white">
       <Transition.Root show={sidebarOpen} as={Fragment}>
@@ -162,33 +169,11 @@ function MoodMovie({ session }) {
                   </button>
                 </div>
               </Transition.Child>
+
               <div className="flex-1 h-0 pt-5 pb-4 overflow-y-auto">
                 <nav aria-label="Sidebar" className="mt-5">
                   <div className="px-2 space-y-1">
-                    {navigation.map((item) => (
-                      <a
-                        key={item.name}
-                        href={item.href}
-                        className={classNames(
-                          item.current
-                            ? "bg-gray-100 text-gray-900"
-                            : "text-gray-600 hover:bg-gray-50 hover:text-gray-900",
-                          "group flex items-center px-2 py-2 text-base font-medium rounded-md"
-                        )}
-                        aria-current={item.current ? "page" : undefined}
-                      >
-                        <item.icon
-                          className={classNames(
-                            item.current
-                              ? "text-gray-500"
-                              : "text-gray-400 group-hover:text-gray-500",
-                            "mr-4 h-6 w-6"
-                          )}
-                          aria-hidden="true"
-                        />
-                        {item.name}
-                      </a>
-                    ))}
+                    <Dashnav />
                   </div>
                   <hr
                     className="border-t border-gray-200 my-5"
@@ -219,7 +204,12 @@ function MoodMovie({ session }) {
         </Dialog>
       </Transition.Root>
 
-      {/* Static sidebar for desktop */}
+      {/* PopUp start */}
+      <PopUp />
+
+      {/* End of PopUp */}
+
+      {/* Static sidebar for DESKTOP*/}
       <div className="hidden lg:flex lg:flex-shrink-0">
         <div className="flex flex-col w-64">
           {/* Sidebar component, swap this element with another sidebar if you like */}
@@ -248,30 +238,7 @@ function MoodMovie({ session }) {
               </div>
               <nav className="mt-5 flex-1" aria-label="Sidebar">
                 <div className="px-2 space-y-1">
-                  {navigation.map((item) => (
-                    <a
-                      key={item.name}
-                      href={item.href}
-                      className={classNames(
-                        item.current
-                          ? "bg-gray-200 text-gray-900"
-                          : "text-gray-600 hover:bg-gray-50 hover:text-gray-900",
-                        "group flex items-center px-2 py-2 text-sm font-medium rounded-md"
-                      )}
-                      aria-current={item.current ? "page" : undefined}
-                    >
-                      <item.icon
-                        className={classNames(
-                          item.current
-                            ? "text-gray-500"
-                            : "text-gray-400 group-hover:text-gray-500",
-                          "mr-3 flex-shrink-0 h-6 w-6"
-                        )}
-                        aria-hidden="true"
-                      />
-                      {item.name}
-                    </a>
-                  ))}
+                  <Dashnav />
                 </div>
                 <hr
                   className="border-t border-gray-200 my-5"
