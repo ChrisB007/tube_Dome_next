@@ -2,7 +2,7 @@ import Head from "next/head";
 import clientPromise from "../lib/mongodb";
 import { useSession } from "next-auth/client";
 import Jumbotron from "../components/Hero";
-import CreatorsList from "../components/CcreatorsProfile";
+import CreatorsList from "../components/CreatorsProfile";
 import TuberOne from "../components/TubeOne";
 
 export default function Home({ isConnected }) {

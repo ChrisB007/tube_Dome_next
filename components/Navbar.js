@@ -145,10 +145,10 @@ function Nav(session) {
                                       aria-hidden="true"
                                     />
                                     <div className="ml-4">
-                                      <p className="text-base font-medium text-gray-500">
+                                      <p className="text-base font-medium text-gray-700">
                                         {item.name}
                                       </p>
-                                      <p className="mt-1 text-sm text-gray-500">
+                                      <p className="mt-1 text-sm text-gray-700">
                                         {item.description}
                                       </p>
                                     </div>
@@ -243,7 +243,7 @@ function Nav(session) {
                               className="flex-shrink-0 h-6 w-6 text-green-600"
                               aria-hidden="true"
                             />
-                            <span className="ml-3 text-base font-medium text-white">
+                            <span className="ml-3 text-base font-medium text-gray-700">
                               {item.name}
                             </span>
                           </a>
@@ -252,30 +252,21 @@ function Nav(session) {
                     </div>
                   </div>
                   <div className="py-6 px-5 space-y-6">
-                    <div className="grid grid-cols-2 gap-y-4 gap-x-8">
+                    {/* <div className="grid grid-cols-2 gap-y-4 gap-x-8">
                       <a
-                        href="www.we.com"
-                        className="text-base font-medium text-white hover:text-gray-700"
+                        href="/"
+                        className="text-base font-medium text-gray-500 hover:text-gray-700"
                       >
                         Pricing
                       </a>
-                    </div>
+                    </div> */}
                     <div>
                       <a
-                        href="www.we.com"
+                        href="/signIn"
                         className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-green-600 hover:bg-green-700"
                       >
-                        Sign up
+                        Sign up | Sign in
                       </a>
-                      <p className="mt-6 text-center text-base font-medium text-gray-500">
-                        Existing customer?
-                        <a
-                          href="www.we.com"
-                          className="text-green-600 hover:text-green-500"
-                        >
-                          Sign in
-                        </a>
-                      </p>
                     </div>
                   </div>
                 </div>
