@@ -2,14 +2,12 @@ import React from "react";
 import { Fragment, useState } from "react";
 import MyModal from "../pages/test";
 import { Dialog, Transition } from "@headlessui/react";
-
-// ICONS
-const allicons = [
-  { name: "Dashboard", icon: "HomeIcon" },
-  { name: "Calendar", icon: "CalendarIcon" },
-  { name: "My Sponsor", icon: "SearchCircleIcon" },
-  { name: "Grow Channel", icon: "UserGroupIcon" },
-];
+import {
+  HomeIcon,
+  CalendarIcon,
+  SearchCircleIcon,
+  UserGroupIcon,
+} from "@heroicons/react/outline";
 
 function Dashnav() {
   let [isOpen, setIsOpen] = useState(false);
@@ -90,23 +88,59 @@ function Dashnav() {
       <div>
         <ul>
           <li className="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center px-2 py-2 text-base font-medium rounded-md">
-            <button id="dash" name="dashboard" onClick={openModal}>
-              Dashboard
+            <button
+              className="inline-flex justify-center px-4 py-2"
+              id="dash"
+              name="dashboard"
+              onClick={openModal}
+            >
+              <HomeIcon
+                className="-ml-1 mr-2 h-5 w-5 text-gray-400"
+                aria-hidden="true"
+              />
+              <span>Dashboard</span>
             </button>
           </li>
           <li className="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center px-2 py-2 text-base font-medium rounded-md">
-            <button id="spons" name="sponsor" onClick={openModal}>
-              My Sponsors
+            <button
+              className="inline-flex justify-center px-4 py-2"
+              id="spons"
+              name="sponsor"
+              onClick={openModal}
+            >
+              <SearchCircleIcon
+                className="-ml-1 mr-2 h-5 w-5 text-gray-400"
+                aria-hidden="true"
+              />
+              <span>My Sponsors</span>
             </button>
           </li>
           <li className="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center px-2 py-2 text-base font-medium rounded-md">
-            <button id="calend" name="calendar" onClick={openModal}>
-              Calendar
+            <button
+              className="inline-flex justify-center px-4 py-2"
+              id="calend"
+              name="calendar"
+              onClick={openModal}
+            >
+              <CalendarIcon
+                className="-ml-1 mr-2 h-5 w-5 text-gray-400"
+                aria-hidden="true"
+              />
+              <span>Calendar</span>
             </button>
           </li>
           <li className="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center px-2 py-2 text-base font-medium rounded-md">
-            <button id="channel" name="grow" onClick={openModal}>
-              Grow your Channel
+            <button
+              className="inline-flex justify-center px-4 py-2"
+              id="channel"
+              name="grow"
+              onClick={openModal}
+            >
+              <UserGroupIcon
+                className="-ml-1 mr-2 h-5 w-5 text-gray-400"
+                aria-hidden="true"
+              />
+              <span>Grow your Channel</span>
             </button>
           </li>
         </ul>

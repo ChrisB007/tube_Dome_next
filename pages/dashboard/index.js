@@ -8,6 +8,7 @@ import {
   MenuIcon,
   SearchCircleIcon,
   UserGroupIcon,
+  CollectionIcon,
   XIcon,
 } from "@heroicons/react/outline";
 import {
@@ -36,7 +37,10 @@ const navigation = [
     current: false,
   },
 ];
-const secondaryNavigation = [{ name: "My Account", href: "#", icon: CogIcon }];
+const secondaryNavigation = [
+  { name: "Be a Sponsor", href: "#", icon: CollectionIcon },
+  { name: "My Account", href: "#", icon: CogIcon },
+];
 const tabs = [
   { name: "Profile", href: "#", current: true },
   { name: "Campaign", href: "#", current: false },
@@ -118,7 +122,16 @@ function classNames(...classes) {
 function MoodMovie({ session }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [loginSession, loading] = useSession();
+  let [isOpen, setIsOpen] = useState(false);
   const user = loginSession.user;
+
+  function closeModal() {
+    setIsOpen(false);
+  }
+
+  function openModal() {
+    setIsOpen(true);
+  }
 
   return (
     <div className="relative h-screen flex overflow-hidden bg-white">
@@ -183,8 +196,8 @@ function MoodMovie({ session }) {
                     {secondaryNavigation.map((item) => (
                       <a
                         key={item.name}
-                        href={item.href}
-                        className="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center px-2 py-2 text-base font-medium rounded-md"
+                        onClick={openModal}
+                        className="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center px-2 py-2 text-base font-medium rounded-md "
                       >
                         <item.icon
                           className="text-gray-400 group-hover:text-gray-500 mr-4 flex-shrink-0 h-6 w-6"
@@ -205,7 +218,70 @@ function MoodMovie({ session }) {
       </Transition.Root>
 
       {/* PopUp start */}
-      <PopUp />
+
+      <Transition appear show={isOpen} as={Fragment}>
+        <Dialog
+          as="div"
+          className="fixed inset-0 z-10 overflow-y-auto"
+          onClose={closeModal}
+        >
+          <div className="min-h-screen px-4 text-center">
+            <Transition.Child
+              as={Fragment}
+              enter="ease-out duration-300"
+              enterFrom="opacity-0"
+              enterTo="opacity-100"
+              leave="ease-in duration-200"
+              leaveFrom="opacity-100"
+              leaveTo="opacity-0"
+            >
+              <Dialog.Overlay className="fixed inset-0" />
+            </Transition.Child>
+
+            {/* This element is to trick the browser into centering the modal contents. */}
+            <span
+              className="inline-block h-screen align-middle"
+              aria-hidden="true"
+            >
+              &#8203;
+            </span>
+            <Transition.Child
+              as={Fragment}
+              enter="ease-out duration-300"
+              enterFrom="opacity-0 scale-95"
+              enterTo="opacity-100 scale-100"
+              leave="ease-in duration-200"
+              leaveFrom="opacity-100 scale-100"
+              leaveTo="opacity-0 scale-95"
+            >
+              <div className="inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl z-40">
+                <Dialog.Title
+                  as="h3"
+                  className="text-lg font-medium leading-6 text-gray-900"
+                >
+                  Feature Update
+                </Dialog.Title>
+                <div className="mt-2">
+                  <p className="text-sm text-gray-500">
+                    This Feature is currently in development, please check back
+                    soon
+                  </p>
+                </div>
+
+                <div className="mt-4">
+                  <button
+                    type="button"
+                    className="inline-flex justify-center px-4 py-2 text-sm font-medium text-blue-900 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
+                    onClick={closeModal}
+                  >
+                    Got it, thanks!
+                  </button>
+                </div>
+              </div>
+            </Transition.Child>
+          </div>
+        </Dialog>
+      </Transition>
 
       {/* End of PopUp */}
 
@@ -244,11 +320,11 @@ function MoodMovie({ session }) {
                   className="border-t border-gray-200 my-5"
                   aria-hidden="true"
                 />
-                <div className="flex-1 px-2 space-y-1">
+                <div className="flex-1 px-2 space-y-1 cursor-pointer">
                   {secondaryNavigation.map((item) => (
                     <a
                       key={item.name}
-                      href={item.href}
+                      onClick={openModal}
                       className="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md"
                     >
                       <item.icon
@@ -325,6 +401,7 @@ function MoodMovie({ session }) {
                       </div>
                       <div className="mt-6 flex flex-col justify-stretch space-y-3 sm:flex-row sm:space-y-0 sm:space-x-4">
                         <button
+                          onClick={openModal}
                           type="button"
                           className="inline-flex justify-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500"
                         >
@@ -336,6 +413,7 @@ function MoodMovie({ session }) {
                         </button>
                         <button
                           type="button"
+                          onClick={openModal}
                           className="inline-flex justify-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500"
                         >
                           <PhoneIcon
@@ -363,7 +441,7 @@ function MoodMovie({ session }) {
                       {tabs.map((tab) => (
                         <a
                           key={tab.name}
-                          href={tab.href}
+                          onClick={openModal}
                           className={classNames(
                             tab.current
                               ? "border-pink-500 text-gray-900"
@@ -470,6 +548,7 @@ function MoodMovie({ session }) {
                 </div>
                 <button
                   type="submit"
+                  onClick={openModal}
                   className="inline-flex justify-center px-3.5 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500"
                 >
                   <FilterIcon
@@ -504,8 +583,12 @@ function MoodMovie({ session }) {
                               alt=""
                             />
                           </div>
-                          <div className="flex-1 min-w-0">
-                            <a href="#" className="focus:outline-none">
+                          <div className="flex-1 min-w-0 cursor-pointer">
+                            <a
+                              onClick={openModal}
+                              type="button"
+                              className="focus:outline-none"
+                            >
                               {/* Extend touch target to entire panel */}
                               <span
                                 className="absolute inset-0"
