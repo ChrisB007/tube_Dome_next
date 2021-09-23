@@ -59,9 +59,10 @@ function Nav(session) {
         return <Login />;
     }
   };
+  console.log(user);
 
   return (
-    <div>
+    <div className="sticky top-0 z-50">
       <Popover className="relative bg-gradient-to-r from-gray-200 via-gray-300 to-gray-500 shadow">
         {({ open }) => (
           <>
