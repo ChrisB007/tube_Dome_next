@@ -21,7 +21,7 @@ const lists = [
     subscribers: 3000058,
     image:
       "https://yt3.ggpht.com/ytc/AKedOLREyrf1aAR_Cv0P7zESJhliKGzNupFofOko_tyaag=s176-c-k-c0x00ffffff-no-rj",
-    views: 379188028,
+    total_views: 379241638,
     categories: "Fashion & Beauty",
     rate: 2000,
     availability: false,
@@ -227,7 +227,7 @@ const lists = [
     image:
       "https://yt3.ggpht.com/ytc/AKedOLR-pT_JEsz_hcaA4Gjx8DHcqJ8mS42aTRqcVy6P7w=s176-c-k-c0x00ffffff-no-rj",
     total_views: 2690609537,
-    categories: "some category",
+    categories: "Science & Technology",
     rate: 2000,
     availability: false,
     channelUrl: "https://www.youtube.com/c/mkbhd",
@@ -274,7 +274,7 @@ const lists = [
     image:
       "https://yt3.ggpht.com/ytc/AKedOLSdn0eVcgSLp35YGznKzWH6uMLpatz26A1wMSKfdA=s176-c-k-c0x00ffffff-no-rj",
     total_views: 675274655,
-    categories: "some category",
+    categories: "People & Blogs",
     rate: 2000,
     availability: false,
     channelUrl: "https://www.youtube.com/c/ToptenzNettop10",

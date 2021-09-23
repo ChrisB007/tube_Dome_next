@@ -4,6 +4,7 @@ import Jumbotron from "../components/Hero";
 import CreatorsList from "../components/CreatorsProfile";
 import TuberOne from "../components/TubeOne";
 import Dashboard from "./dashboard/";
+import Search from "../components/Search";
 
 export default function Home({ finalData }) {
   const [session, loading] = useSession();
@@ -25,13 +26,14 @@ export default function Home({ finalData }) {
                   <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">
                     Connect with genius Creators
                   </h2>
+                  <Search />
                   <p className="text-xl text-gray-500 flex justify-center items-center">
                     By Name | By Category | By Content
                   </p>
                 </div>
               </div>
               <div className="center-grid grid m-auto grid-cols-1 sm:grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 relative overflow-scroll scrollbar-hide p-3 -ml-3 w-full sm:w-4/5 md:w-4/5 lg:w-4/5">
-                {finalData.map((data) => (
+                {finalData.slice(0, 12).map((data) => (
                   <div className="m-auto w-11/12">
                     <div className="pt-5 ">
                       <CreatorsList
@@ -64,7 +66,7 @@ export default function Home({ finalData }) {
 export async function getStaticProps(context) {
   //Base Url
 
-  const baseUrl = "http://localhost:3000";
+  const baseUrl = "https://www.tuberdome.com";
 
   const initialData = await fetch(`${baseUrl}/api/channels`);
   const finalData = await initialData.json();
