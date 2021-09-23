@@ -9,6 +9,8 @@ import Search from "../components/Search";
 export default function Home({ finalData }) {
   const [session, loading] = useSession();
 
+  console.log(finalData);
+
   return (
     <>
       <Head>
@@ -33,7 +35,7 @@ export default function Home({ finalData }) {
                 </div>
               </div>
               <div className="center-grid grid m-auto grid-cols-1 sm:grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 relative overflow-scroll scrollbar-hide p-3 -ml-3 w-full sm:w-4/5 md:w-4/5 lg:w-4/5">
-                {finalData.slice(0, 12).map((data) => (
+                {finalData.map((data) => (
                   <div className="m-auto w-11/12">
                     <div className="pt-5 ">
                       <CreatorsList
@@ -66,9 +68,18 @@ export default function Home({ finalData }) {
 export async function getStaticProps(context) {
   //Base Url
 
-  const baseUrl = "https://www.tuberdome.com";
+  const baseUrl = "http://localhost:3000";
 
-  const initialData = await fetch(`${baseUrl}/api/channels`);
+  const initialData = await fetch(`${baseUrl}/api/channels`, {
+    method: "GET",
+    headers: {
+      // update with your user-agent
+      "User-Agent":
+        "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36",
+      Accept: "application/json; charset=UTF-8",
+    },
+  });
+
   const finalData = await initialData.json();
 
   //Return data
