@@ -33,7 +33,7 @@ export default function Home({ finalData }) {
                 </div>
               </div>
               <div className="center-grid grid m-auto grid-cols-1 sm:grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 relative overflow-scroll scrollbar-hide p-3 -ml-3 w-full sm:w-4/5 md:w-4/5 lg:w-4/5">
-                {finalData.slice(0, 16).map((data) => (
+                {finalData.slice(0, 8).map((data) => (
                   <div className="m-auto w-11/12">
                     <div className="pt-5 ">
                       <CreatorsList
@@ -49,7 +49,24 @@ export default function Home({ finalData }) {
                   </div>
                 ))}
               </div>
-              {/* <TuberOne /> */}
+              <TuberOne />
+              <div className="center-grid grid m-auto grid-cols-1 sm:grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 relative overflow-scroll scrollbar-hide p-3 -ml-3 w-full sm:w-4/5 md:w-4/5 lg:w-4/5">
+                {finalData.slice(9, 17).map((data) => (
+                  <div className="m-auto w-11/12">
+                    <div className="pt-5 ">
+                      <CreatorsList
+                        name={data.name}
+                        image={data.image}
+                        description={data.description}
+                        categories={data.categories}
+                        subscribers={data.subscribers}
+                        total_views={data.total_views}
+                        rate={data.rate}
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
             </main>
           </>
         )}
